@@ -167,6 +167,7 @@ function MangoList({ mango, id }) {
 export function Fruit() {
     const { id } = useParams()
     const [mango, setMango] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
         fetch(`http://localhost:4009/fruits/${id}`)
             .then((data) => data.json())
@@ -216,7 +217,12 @@ export function Fruit() {
                             </div>
                             <p>This is a <span className="soldby-product">{mango.ingredientType}</span> Product</p>
                         </div>
-                        <button className="buy" onClick={() => alert("Your order has been conformed")}>Buy</button>
+                        <button className="buy"
+                            onClick={() => {
+                                navigate("/verifyEmail")
+                            }}
+                        >Buy</button>
+
                     </div>
                     <div className="about">
                         <p className="about-title">About this item</p>
@@ -297,7 +303,7 @@ export function Fruit() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
