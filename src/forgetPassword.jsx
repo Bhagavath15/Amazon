@@ -26,7 +26,7 @@ export function ForgetPassword() {
 
     const UpdateData = (newUpdate) => {
         console.log(newUpdate)
-        fetch("http://localhost:4009/forget-password/",
+        fetch("https://amazon-backend-orcin.vercel.app/forget-password/",
             {
                 method: "POST",
                 body: JSON.stringify(newUpdate),

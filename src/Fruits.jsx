@@ -135,7 +135,7 @@ function Mangoes({ mango, setMango }) {
     //      "date":"14 March 2018"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/fruits",
+        fetch("https://amazon-backend-orcin.vercel.app/fruits",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setMango(dts))
@@ -169,7 +169,7 @@ export function Fruit() {
     const [mango, setMango] = useState([])
     const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/fruits/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/fruits/${id}`)
             .then((data) => data.json())
             .then((dts) => setMango(dts));
     }, [id]);
@@ -216,12 +216,13 @@ export function Fruit() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{mango.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
-                        <button className="buy"
-                            onClick={() => {
-                                navigate("/verifyEmail")
-                            }}
-                        >Buy</button>
+
 
                     </div>
                     <div className="about">
@@ -428,7 +429,7 @@ function Vegetables({ vegetable, setVegetable }) {
     //      "date":"13 March 2018"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/vegetables",
+        fetch("https://amazon-backend-orcin.vercel.app/vegetables",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setVegetable(dts))
@@ -462,8 +463,9 @@ function VegetableList({ vegetable, id }) {
 export function Vegetable() {
     const { id } = useParams()
     const [mango, setMango] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/vegetables/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/vegetables/${id}`)
             .then((data) => data.json())
             .then((dts) => setMango(dts));
     }, [id]);
@@ -510,6 +512,11 @@ export function Vegetable() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{mango.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">

@@ -44,6 +44,10 @@ body {
     font-size: 20px;
 }
 
+.navbar-bold:hover {
+    cursor: pointer
+}
+
 .navbar-ptag {
     font-size: 12px;
 }
@@ -233,6 +237,7 @@ body {
 }
 
 
+
 .price-container {
     font-size: 14px;
     line-height: 8px;
@@ -273,7 +278,7 @@ body {
 }
 
 .soldby {
-    height: 100px;
+    height: 70px;
     font-size: 15px;
     line-height: 6px;
     border-bottom: 1.5px solid grey;
@@ -347,6 +352,7 @@ body {
 
 .about {
     font-size: 15px;
+    line-height: 22px
 }
 
 .about-title {

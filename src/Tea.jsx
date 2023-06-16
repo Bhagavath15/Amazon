@@ -136,7 +136,7 @@ function TeaPack({ tea, setTea }) {
     //         "date": "19 May 2015"
     //     }]
     const getProducts = () => {
-        fetch("http://localhost:4009/tea",
+        fetch("https://amazon-backend-orcin.vercel.app/tea",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setTea(dts))
@@ -168,8 +168,9 @@ function TeaList({ tea, id }) {
 export function TeaCont() {
     const { id } = useParams()
     const [tea, setTea] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/tea/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/tea/${id}`)
             .then((data) => data.json())
             .then((dts) => setTea(dts));
     }, [id]);
@@ -220,6 +221,11 @@ export function TeaCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{tea.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -437,7 +443,7 @@ function Coffee({ coffee, setCoffee }) {
     //         "date": "2 Apirl 2015"
     //     }]
     const getProducts = () => {
-        fetch("http://localhost:4009/coffee",
+        fetch("https://amazon-backend-orcin.vercel.app/coffee",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setCoffee(dts))
@@ -471,8 +477,9 @@ function CoffeeList({ coffee, id }) {
 export function CoffeeCont() {
     const { id } = useParams()
     const [coffee, setCoffee] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/coffee/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/coffee/${id}`)
             .then((data) => data.json())
             .then((dts) => setCoffee(dts));
     }, [id]);
@@ -523,6 +530,11 @@ export function CoffeeCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{coffee.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">

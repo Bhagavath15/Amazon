@@ -184,7 +184,7 @@ function Categories({ category, setCategory }) {
   //   // }
   // ]
   const getProducts = () => {
-    fetch("http://localhost:4009/dashboard",
+    fetch("https://amazon-backend-orcin.vercel.app/dashboard",
       { method: "GET" })
       .then((data) => data.json())
       .then((dts) => setCategory(dts))

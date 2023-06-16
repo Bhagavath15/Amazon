@@ -155,7 +155,7 @@ function Oils({ oil, setOil }) {
     //     "date": "30 August 2016"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/oil",
+        fetch("https://amazon-backend-orcin.vercel.app/oil",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setOil(dts))
@@ -186,8 +186,9 @@ function OilList({ oil, id }) {
 export function OilCont() {
     const { id } = useParams()
     const [oil, setOil] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/oil/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/oil/${id}`)
             .then((data) => data.json())
             .then((dts) => setOil(dts));
     }, [id]);
@@ -238,6 +239,11 @@ export function OilCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{oil.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -465,7 +471,7 @@ function Masala({ masala, setMasala }) {
     //     "date": "1 January 2017"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/masala",
+        fetch("https://amazon-backend-orcin.vercel.app/masala",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setMasala(dts))
@@ -497,8 +503,9 @@ function MasalaList({ masala, id }) {
 export function MasalaCont() {
     const { id } = useParams()
     const [masala, setMasala] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/masala/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/masala/${id}`)
             .then((data) => data.json())
             .then((dts) => setMasala(dts));
     }, [id]);
@@ -549,6 +556,11 @@ export function MasalaCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{masala.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -761,7 +773,7 @@ function Sauce({ sauce, setSauce }) {
     // "date": "1 January 2017"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/sauce",
+        fetch("https://amazon-backend-orcin.vercel.app/sauce",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setSauce(dts))
@@ -795,8 +807,9 @@ function SauceList({ sauce, id }) {
 export function SauceCont() {
     const { id } = useParams()
     const [sauce, setSauce] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/sauce/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/sauce/${id}`)
             .then((data) => data.json())
             .then((dts) => setSauce(dts));
     }, [id]);
@@ -847,6 +860,11 @@ export function SauceCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{sauce.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">

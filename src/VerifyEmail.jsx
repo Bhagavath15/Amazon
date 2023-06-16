@@ -13,7 +13,7 @@ export function VerifyEmail() {
     const handleVerifyEmail = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:4009/verifyEmail', {
+            const response = await fetch('https://amazon-backend-orcin.vercel.app/verifyEmail', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, phoneNo }),

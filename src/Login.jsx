@@ -19,7 +19,7 @@ export function Login() {
         // validationSchema: formValidationSchema,
         onSubmit: async (values) => {
             console.log("submit")
-            const data = await fetch("http://localhost:4009/login", {
+            const data = await fetch("https://amazon-backend-orcin.vercel.app/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -101,7 +101,7 @@ export function Signin() {
     const adddata = (newdata) => {
         console.log(newdata)
 
-        fetch("http://localhost:4009/signup", {
+        fetch("https://amazon-backend-orcin.vercel.app/signup", {
             method: "POST",
             body: JSON.stringify(newdata),
             headers: {

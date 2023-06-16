@@ -137,7 +137,7 @@ function Juice({ juice, setJuice }) {
     //         "date": "10 August 2015"
     //     }]
     const getProducts = () => {
-        fetch("http://localhost:4009/juice",
+        fetch("https://amazon-backend-orcin.vercel.app/juice",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setJuice(dts))
@@ -169,8 +169,9 @@ function JuiceList({ juice, id }) {
 export function JuiceCont() {
     const { id } = useParams()
     const [juice, setJuice] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/juice/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/juice/${id}`)
             .then((data) => data.json())
             .then((dts) => setJuice(dts));
     }, [id]);
@@ -221,6 +222,11 @@ export function JuiceCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{juice.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -431,7 +437,7 @@ function Drink({ drink, setDrink }) {
     //     "date": "23 July 2018"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/drinks",
+        fetch("https://amazon-backend-orcin.vercel.app/drinks",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setDrink(dts))
@@ -463,8 +469,9 @@ function DrinkList({ drink, id }) {
 export function DrinksCont() {
     const { id } = useParams()
     const [drink, setDrink] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/drinks/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/drinks/${id}`)
             .then((data) => data.json())
             .then((dts) => setDrink(dts));
     }, [id]);
@@ -515,6 +522,11 @@ export function DrinksCont() {
                                 <div className="veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{drink.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">

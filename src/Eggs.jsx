@@ -131,7 +131,7 @@ function Egg({ egg, setEgg }) {
     //     "date": "20 December 2018"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/egg",
+        fetch("https://amazon-backend-orcin.vercel.app/egg",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setEgg(dts))
@@ -163,8 +163,9 @@ function EggList({ egg, id }) {
 export function EggCont() {
     const { id } = useParams()
     const [egg, setEgg] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/egg/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/egg/${id}`)
             .then((data) => data.json())
             .then((dts) => setEgg(dts));
     }, [id]);
@@ -215,6 +216,11 @@ export function EggCont() {
                                 <div className="non-veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{egg.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -416,7 +422,7 @@ function Fish({ fish, setFish }) {
     //     "date": "3 May 2022"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/fish",
+        fetch("https://amazon-backend-orcin.vercel.app/fish",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setFish(dts))
@@ -450,8 +456,9 @@ function FishList({ fish, id }) {
 export function FishCont() {
     const { id } = useParams()
     const [fish, setFish] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/fish/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/fish/${id}`)
             .then((data) => data.json())
             .then((dts) => setFish(dts));
     }, [id]);
@@ -502,6 +509,11 @@ export function FishCont() {
                                 <div className="non-veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{fish.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -704,7 +716,7 @@ function Chicken({ chicken, setChicken }) {
     //     "date": "4 October 2022"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/chicken",
+        fetch("https://amazon-backend-orcin.vercel.app/chicken",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setChicken(dts))
@@ -739,8 +751,9 @@ function ChickenList({ chicken, id }) {
 export function ChickenCont() {
     const { id } = useParams()
     const [chicken, setChicken] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/chicken/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/chicken/${id}`)
             .then((data) => data.json())
             .then((dts) => setChicken(dts));
     }, [id]);
@@ -791,6 +804,11 @@ export function ChickenCont() {
                                 <div className="non-veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{chicken.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
@@ -949,7 +967,7 @@ function Mutton({ mutton, setMutton }) {
     //     "date": "25 Apirl 2023"
     // }]
     const getProducts = () => {
-        fetch("http://localhost:4009/mutton",
+        fetch("https://amazon-backend-orcin.vercel.app/mutton",
             { method: "GET" })
             .then((data) => data.json())
             .then((dts) => setMutton(dts))
@@ -983,8 +1001,9 @@ function MuttonList({ mutton, id }) {
 export function MuttonCont() {
     const { id } = useParams()
     const [mutton, setMutton] = useState([])
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:4009/mutton/${id}`)
+        fetch(`https://amazon-backend-orcin.vercel.app/mutton/${id}`)
             .then((data) => data.json())
             .then((dts) => setMutton(dts));
     }, [id]);
@@ -1035,6 +1054,11 @@ export function MuttonCont() {
                                 <div className="non-veg-circle"></div>
                             </div>
                             <p>This is a <span className="soldby-product">{mutton.ingredientType}</span> Product</p>
+                            <button className="buy"
+                                onClick={() => {
+                                    navigate("/verifyEmail")
+                                }}
+                            >Buy</button>
                         </div>
                     </div>
                     <div className="about">
