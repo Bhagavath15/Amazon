@@ -129,7 +129,7 @@ body {
 }
 
 .mangoes {
-    height: 380px;
+    height: auto;
     width: 100%;
     background-color: white
 }

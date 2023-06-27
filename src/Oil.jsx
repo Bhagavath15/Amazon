@@ -177,7 +177,7 @@ function OilList({ oil, id }) {
         <div className="mangolist" >
             <img src={oil.img} alt={oil.title} />
             <p className="mango-title" onClick={() => navigate(`/oil/${oil.id}`)}>{oil.title} </p>
-            <span className="mango-rate">{oil.rate}</span>
+            <span className="mango-rate">₹ {oil.rate}</span>
             <span className="strike">{oil.strike}</span>
             <p className="offer">{oil.off}</p>
         </div>
@@ -192,6 +192,47 @@ export function OilCont() {
             .then((data) => data.json())
             .then((dts) => setOil(dts));
     }, [id]);
+    const amount = parseInt(oil.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -209,7 +250,7 @@ export function OilCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {oil.strike}</span></p>
-                        <p >Price : <span className="price">{oil.rate}</span></p>
+                        <p >Price : <span className="price">₹ {oil.rate}</span></p>
                         <p >Offer : <span className="price">{oil.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -240,9 +281,7 @@ export function OilCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{oil.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -493,7 +532,7 @@ function MasalaList({ masala, id }) {
         <div className="mangolist" >
             <img src={masala.img} alt={masala.title} />
             <p className="mango-title" onClick={() => navigate(`/masala/${masala.id}`)}>{masala.title} </p>
-            <span className="mango-rate">{masala.rate}</span>
+            <span className="mango-rate">₹ {masala.rate}</span>
             <span className="strike">{masala.strike}</span>
             <p className="offer">{masala.off}</p>
         </div>
@@ -509,6 +548,47 @@ export function MasalaCont() {
             .then((data) => data.json())
             .then((dts) => setMasala(dts));
     }, [id]);
+    const amount = parseInt(masala.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -526,7 +606,7 @@ export function MasalaCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {masala.strike}</span></p>
-                        <p >Price : <span className="price">{masala.rate}</span></p>
+                        <p >Price : <span className="price">₹ {masala.rate}</span></p>
                         <p >Offer : <span className="price">{masala.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -557,9 +637,7 @@ export function MasalaCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{masala.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -797,7 +875,7 @@ function SauceList({ sauce, id }) {
         <div className="mangolist" >
             <img src={sauce.img} alt={sauce.title} />
             <p className="mango-title" onClick={() => navigate(`/sauce/${sauce.id}`)}>{sauce.title} </p>
-            <span className="mango-rate">{sauce.rate}</span>
+            <span className="mango-rate">₹ {sauce.rate}</span>
             <span className="strike">{sauce.strike}</span>
             <p className="offer">{sauce.off}</p>
         </div>
@@ -813,6 +891,47 @@ export function SauceCont() {
             .then((data) => data.json())
             .then((dts) => setSauce(dts));
     }, [id]);
+    const amount = parseInt(sauce.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -830,7 +949,7 @@ export function SauceCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {sauce.strike}</span></p>
-                        <p >Price : <span className="price">{sauce.rate}</span></p>
+                        <p >Price : <span className="price">₹ {sauce.rate}</span></p>
                         <p >Offer : <span className="price">{sauce.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -861,9 +980,7 @@ export function SauceCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{sauce.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>

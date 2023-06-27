@@ -168,11 +168,55 @@ export function Fruit() {
     const { id } = useParams()
     const [mango, setMango] = useState([])
     const navigate = useNavigate()
+    const amount = parseInt(mango.rate)
+
     useEffect(() => {
         fetch(`https://amazon-backend-orcin.vercel.app/fruits/${id}`)
             .then((data) => data.json())
-            .then((dts) => setMango(dts));
+            .then((dts) => setMango(dts))
+
+
     }, [id]);
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -186,7 +230,7 @@ export function Fruit() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {mango.strike}</span></p>
-                        <p >Price : <span className="price">{mango.rate}</span></p>
+                        <p >Price : <span className="price">₹ {mango.rate}</span></p>
                         <p >Offer : <span className="price">{mango.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -217,9 +261,7 @@ export function Fruit() {
                             </div>
                             <p>This is a <span className="soldby-product">{mango.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
 
@@ -469,6 +511,47 @@ export function Vegetable() {
             .then((data) => data.json())
             .then((dts) => setMango(dts));
     }, [id]);
+    const vegetableAmount = parseInt(mango.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (vegetableAmount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: vegetableAmount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -482,7 +565,7 @@ export function Vegetable() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {mango.strike}</span></p>
-                        <p >Price : <span className="price">{mango.rate}</span></p>
+                        <p >Price : <span className="price">₹ {mango.rate}</span></p>
                         <p >Offer : <span className="price">{mango.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -513,9 +596,7 @@ export function Vegetable() {
                             </div>
                             <p>This is a <span className="soldby-product">{mango.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>

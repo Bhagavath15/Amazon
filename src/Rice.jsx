@@ -174,6 +174,47 @@ export function DalCont() {
             .then((data) => data.json())
             .then((dts) => setDal(dts));
     }, [id]);
+    const amount = parseInt(dal.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -189,7 +230,7 @@ export function DalCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {dal.strike}</span></p>
-                        <p >Price : <span className="price">{dal.rate}</span></p>
+                        <p >Price : <span className="price">₹ {dal.rate}</span></p>
                         <p >Offer : <span className="price">{dal.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -221,9 +262,7 @@ export function DalCont() {
                             <p>This is a <span className="soldby-product">{dal.ingredientType}</span> Product</p>
 
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -498,6 +537,47 @@ export function RiceCont() {
             .then((data) => data.json())
             .then((dts) => setRice(dts));
     }, [id]);
+    const amount = parseInt(rice.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -515,7 +595,7 @@ export function RiceCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {rice.strike}</span></p>
-                        <p >Price : <span className="price">{rice.rate}</span></p>
+                        <p >Price : <span className="price">₹ {rice.rate}</span></p>
                         <p >Offer : <span className="price">{rice.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -546,9 +626,7 @@ export function RiceCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{rice.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -822,6 +900,47 @@ export function AttaCont() {
             .then((data) => data.json())
             .then((dts) => setAtta(dts));
     }, [id]);
+    const amount = parseInt(atta.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -836,7 +955,7 @@ export function AttaCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {atta.strike}</span></p>
-                        <p >Price : <span className="price">{atta.rate}</span></p>
+                        <p >Price : <span className="price">₹ {atta.rate}</span></p>
                         <p >Offer : <span className="price">{atta.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -867,9 +986,7 @@ export function AttaCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{atta.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>

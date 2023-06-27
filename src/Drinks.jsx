@@ -160,7 +160,7 @@ function JuiceList({ juice, id }) {
         <div className="mangolist" >
             <img src={juice.img} alt={juice.title} />
             <p className="mango-title" onClick={() => navigate(`/juice/${juice.id}`)}>{juice.title} </p>
-            <span className="mango-rate">{juice.rate}</span>
+            <span className="mango-rate">₹ {juice.rate}</span>
             <span className="strike">{juice.strike}</span>
             <p className="offer">{juice.off}</p>
         </div>
@@ -175,6 +175,47 @@ export function JuiceCont() {
             .then((data) => data.json())
             .then((dts) => setJuice(dts));
     }, [id]);
+    const amount = parseInt(juice.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -192,7 +233,7 @@ export function JuiceCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {juice.strike}</span></p>
-                        <p >Price : <span className="price">{juice.rate}</span></p>
+                        <p >Price : <span className="price">₹ {juice.rate}</span></p>
                         <p >Offer : <span className="price">{juice.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -223,9 +264,7 @@ export function JuiceCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{juice.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -459,7 +498,7 @@ function DrinkList({ drink, id }) {
         <div className="mangolist" >
             <img src={drink.img} alt={drink.title} />
             <p className="mango-title" onClick={() => navigate(`/drinks/${drink.id}`)}>{drink.title} </p>
-            <span className="mango-rate">{drink.rate}</span>
+            <span className="mango-rate">₹ {drink.rate}</span>
             <span className="strike">{drink.strike}</span>
             <p className="offer">{drink.off}</p>
         </div>
@@ -475,6 +514,47 @@ export function DrinksCont() {
             .then((data) => data.json())
             .then((dts) => setDrink(dts));
     }, [id]);
+    const amount = parseInt(drink.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -492,7 +572,7 @@ export function DrinksCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {drink.strike}</span></p>
-                        <p >Price : <span className="price">{drink.rate}</span></p>
+                        <p >Price : <span className="price">₹ {drink.rate}</span></p>
                         <p >Offer : <span className="price">{drink.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -523,9 +603,7 @@ export function DrinksCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{drink.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>

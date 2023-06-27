@@ -153,7 +153,7 @@ function EggList({ egg, id }) {
         <div className="mangolist" >
             <img src={egg.img} alt={egg.title} />
             <p className="mango-title" onClick={() => navigate(`/egg/${egg.id}`)}>{egg.title} </p>
-            <span className="mango-rate">{egg.rate}</span>
+            <span className="mango-rate">₹ {egg.rate}</span>
             <span className="strike">{egg.strike}</span>
             <p className="offer">{egg.off}</p>
         </div>
@@ -169,6 +169,47 @@ export function EggCont() {
             .then((data) => data.json())
             .then((dts) => setEgg(dts));
     }, [id]);
+    const amount = parseInt(egg.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -186,7 +227,7 @@ export function EggCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {egg.strike}</span></p>
-                        <p >Price : <span className="price">{egg.rate}</span></p>
+                        <p >Price : <span className="price">₹ {egg.rate}</span></p>
                         <p >Offer : <span className="price">{egg.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -217,9 +258,7 @@ export function EggCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{egg.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -446,7 +485,7 @@ function FishList({ fish, id }) {
         <div className="mangolist" >
             <img src={fish.img} alt={fish.title} />
             <p className="mango-title" onClick={() => navigate(`/fish/${fish.id}`)}>{fish.title} </p>
-            <span className="mango-rate">{fish.rate}</span>
+            <span className="mango-rate">₹ {fish.rate}</span>
             <span className="strike">{fish.strike}</span>
             <p className="offer">{fish.off}</p>
         </div>
@@ -462,6 +501,47 @@ export function FishCont() {
             .then((data) => data.json())
             .then((dts) => setFish(dts));
     }, [id]);
+    const amount = parseInt(fish.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -479,7 +559,7 @@ export function FishCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {fish.strike}</span></p>
-                        <p >Price : <span className="price">{fish.rate}</span></p>
+                        <p >Price : <span className="price">₹ {fish.rate}</span></p>
                         <p >Offer : <span className="price">{fish.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -510,9 +590,7 @@ export function FishCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{fish.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -740,7 +818,7 @@ function ChickenList({ chicken, id }) {
         <div className="mangolist" >
             <img src={chicken.img} alt={chicken.title} />
             <p className="mango-title" onClick={() => navigate(`/chicken/${chicken.id}`)}>{chicken.title} </p>
-            <span className="mango-rate">{chicken.rate}</span>
+            <span className="mango-rate">₹ {chicken.rate}</span>
             <span className="strike">{chicken.strike}</span>
             <p className="offer">{chicken.off}</p>
         </div>
@@ -757,6 +835,47 @@ export function ChickenCont() {
             .then((data) => data.json())
             .then((dts) => setChicken(dts));
     }, [id]);
+    const amount = parseInt(chicken.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -774,7 +893,7 @@ export function ChickenCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {chicken.strike}</span></p>
-                        <p >Price : <span className="price">{chicken.rate}</span></p>
+                        <p >Price : <span className="price">₹ {chicken.rate}</span></p>
                         <p >Offer : <span className="price">{chicken.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -805,9 +924,7 @@ export function ChickenCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{chicken.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
@@ -991,7 +1108,7 @@ function MuttonList({ mutton, id }) {
         <div className="mangolist" >
             <img src={mutton.img} alt={mutton.title} />
             <p className="mango-title" onClick={() => navigate(`/mutton/${mutton.id}`)}>{mutton.title} </p>
-            <span className="mango-rate">{mutton.rate}</span>
+            <span className="mango-rate">₹ {mutton.rate}</span>
             <span className="strike">{mutton.strike}</span>
             <p className="offer">{mutton.off}</p>
         </div>
@@ -1007,6 +1124,47 @@ export function MuttonCont() {
             .then((data) => data.json())
             .then((dts) => setMutton(dts));
     }, [id]);
+    const amount = parseInt(mutton.rate)
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (amount === '') {
+            alert("please enter amount")
+        }
+        else {
+            var option = {
+                key: "rzp_test_teSKDfmwTCTFu0",
+                key_secret: "2TZaVrFSXYnzzu3QeH6N3t3w",
+                amount: amount * 100,
+                currency: "INR",
+                name: "Amazon Groceries",
+                description: "For Booking Ticket",
+                handler: function (response) {
+                    alert(response.razorpay_payment_id)
+                    // navigate("/thank-you")
+                    setTimeout(() => {
+                        navigate("/dashboard")
+                    }, 3000)
+                },
+                // prefill: {
+                //     name: name,
+                //     email: email,
+                //     contact: phone,
+                // },
+                notes: {
+                    address: "Razor pay corporate office"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+
+            }
+            var pay = new window.Razorpay(option)
+            pay.open()
+
+        }
+
+
+    }
     return (
         <div className="info">
             <div className="features">
@@ -1024,7 +1182,7 @@ export function MuttonCont() {
                     </div>
                     <div className="price-container">
                         <p>MRP :<span className="price-strike" > {mutton.strike}</span></p>
-                        <p >Price : <span className="price">{mutton.rate}</span></p>
+                        <p >Price : <span className="price">₹ {mutton.rate}</span></p>
                         <p >Offer : <span className="price">{mutton.off}</span></p>
                         <p>Inclusive all taxes</p>
                     </div>
@@ -1055,9 +1213,7 @@ export function MuttonCont() {
                             </div>
                             <p>This is a <span className="soldby-product">{mutton.ingredientType}</span> Product</p>
                             <button className="buy"
-                                onClick={() => {
-                                    navigate("/verifyEmail")
-                                }}
+                                onClick={handleClick}
                             >Buy</button>
                         </div>
                     </div>
